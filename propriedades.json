@@ -1,0 +1,102 @@
+{
+  "1": {
+    "custo_venda": 10,
+    "custo_aluguel": 5,
+    "proprietario": null
+  },
+  "2": {
+    "custo_venda": 20,
+    "custo_aluguel": 10,
+    "proprietario": null
+  },
+  "3": {
+    "custo_venda": 30,
+    "custo_aluguel": 20,
+    "proprietario": null
+  },
+  "4": {
+    "custo_venda": 40,
+    "custo_aluguel": 20,
+    "proprietario": null
+  },
+  "5": {
+    "custo_venda": 50,
+    "custo_aluguel": 30,
+    "proprietario": null
+  },
+  "6": {
+    "custo_venda": 60,
+    "custo_aluguel": 30,
+    "proprietario": null
+  },
+  "7": {
+    "custo_venda": 70,
+    "custo_aluguel": 30,
+    "proprietario": null
+  },
+  "8": {
+    "custo_venda": 80,
+    "custo_aluguel": 50,
+    "proprietario": null
+  },
+  "9": {
+    "custo_venda": 90,
+    "custo_aluguel": 50,
+    "proprietario": null
+  },
+  "10": {
+    "custo_venda": 100,
+    "custo_aluguel": 50,
+    "proprietario": null
+  },
+  "11": {
+    "custo_venda": 110,
+    "custo_aluguel": 50,
+    "proprietario": null
+  },
+  "12": {
+    "custo_venda": 120,
+    "custo_aluguel": 100,
+    "proprietario": null
+  },
+  "13": {
+    "custo_venda": 130,
+    "custo_aluguel": 100,
+    "proprietario": null
+  },
+  "14": {
+    "custo_venda": 140,
+    "custo_aluguel": 100,
+    "proprietario": null
+  },
+  "15": {
+    "custo_venda": 150,
+    "custo_aluguel": 100,
+    "proprietario": null
+  },
+  "16": {
+    "custo_venda": 160,
+    "custo_aluguel": 100,
+    "proprietario": null
+  },
+  "17": {
+    "custo_venda": 170,
+    "custo_aluguel": 100,
+    "proprietario": null
+  },
+  "18": {
+    "custo_venda": 180,
+    "custo_aluguel": 100,
+    "proprietario": null
+  },
+  "19": {
+    "custo_venda": 190,
+    "custo_aluguel": 150,
+    "proprietario": null
+  },
+  "20": {
+    "custo_venda": 200,
+    "custo_aluguel": 150,
+    "proprietario": null
+  }
+}
