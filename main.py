@@ -8,11 +8,17 @@ from tipo_jogador import TipoJogador
 
 class BancoImobiliario:
 
-    def __init__(self, lista_jogadores: List[Jogador], max_rodadas: int =1000, lista_propriedades: list = None):
+    def __init__(self,
+                 partida: int = 0,
+                 lista_jogadores: List[Jogador] = None,
+                 max_rodadas: int =1000,
+                 lista_propriedades: list = None):
+        self._partida = partida
         self._rodada = 0
         self._lista_jogadores = lista_jogadores
         self._max_rodadas = max_rodadas
         self.propriedades = lista_propriedades
+        self.time_out = False
 
     @staticmethod
     def rolar_dado():
@@ -23,8 +29,9 @@ class BancoImobiliario:
             self._rodada += 1
             self.executar_rodada()
             # print(f"fim da rodada {self._rodada}")
-
-        print(f'fim do jogo n.rodadas={self._rodada}')
+        if self._rodada > self._max_rodadas:
+            self.time_out = True
+        print(f'fim da partida n{self._partida} n.rodadas={self._rodada}')
 
     def resultado(self):
         print('resultado do jogo')
@@ -40,10 +47,10 @@ class BancoImobiliario:
     def executar_rodada(self):
         for jogador in self._lista_jogadores:
             if not self.validar_se_tem_jogadores():
-                print('acabou o jogo !')
+                # print('acabou o jogo !')
                 break
             if jogador.saldo < 0:
-                print('jogador fora da partida')
+                # print('jogador fora da partida')
                 continue
             posicao = self.rolar_dado()
             jogador.posicao_tabuleiro = posicao
@@ -76,20 +83,20 @@ class BancoImobiliario:
 
 
 if __name__ == "__main__":
-    lista_jogadores = list()
-
     with open('propriedades.json') as f:
         propriedades = json.load(f)
-        lista_jogadores.append(
-            Jogador(nome='jogador1', ordem=1, tipo_jogador=TipoJogador.IMPULSIVO, max_posicoes=len(propriedades)))
-        lista_jogadores.append(
-            Jogador(nome='jogador2', ordem=2, tipo_jogador=TipoJogador.EXIGENTE, max_posicoes=len(propriedades)))
-        lista_jogadores.append(
-            Jogador(nome='jogador3', ordem=3, tipo_jogador=TipoJogador.CAUTELOSO, max_posicoes=len(propriedades)))
-        lista_jogadores.append(
-            Jogador(nome='jogador4', ordem=4, tipo_jogador=TipoJogador.ALEATORIO, max_posicoes=len(propriedades)))
-        banco = BancoImobiliario(lista_jogadores=lista_jogadores, max_rodadas=1000, lista_propriedades=propriedades)
-        banco.iniciar()
-        banco.resultado()
-
-
+        for x in range(300):
+            lista_jogadores = list()
+            lista_jogadores.append(
+                Jogador(nome='jogador1', ordem=1, tipo_jogador=TipoJogador.IMPULSIVO, max_posicoes=len(propriedades)))
+            lista_jogadores.append(
+                Jogador(nome='jogador2', ordem=2, tipo_jogador=TipoJogador.EXIGENTE, max_posicoes=len(propriedades)))
+            lista_jogadores.append(
+                Jogador(nome='jogador3', ordem=3, tipo_jogador=TipoJogador.CAUTELOSO, max_posicoes=len(propriedades)))
+            lista_jogadores.append(
+                Jogador(nome='jogador4', ordem=4, tipo_jogador=TipoJogador.ALEATORIO, max_posicoes=len(propriedades)))
+            banco = BancoImobiliario(
+                partida=x,
+                lista_jogadores=lista_jogadores, max_rodadas=1000, lista_propriedades=propriedades)
+            banco.iniciar()
+            banco.resultado()
