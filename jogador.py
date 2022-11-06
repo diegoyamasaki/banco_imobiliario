@@ -1,3 +1,4 @@
+import json
 from random import randrange
 from tipo_jogador import TipoJogador
 
@@ -19,7 +20,7 @@ class Jogador:
     def saldo(self, valor: int):
         self._saldo += valor
 
-    def pagar_valor(self, valor):
+    def pagar_valor(self, valor: int):
         self._saldo -= valor
 
     @property
@@ -27,18 +28,16 @@ class Jogador:
         return self._posicao_tabuleiro
 
     @posicao_tabuleiro.setter
-    def posicao_tabuleiro(self, posicao):
+    def posicao_tabuleiro(self, posicao: int) -> None:
         if (self._posicao_tabuleiro + posicao) > self._max_posicoes:
             temp_posicao = self._posicao_tabuleiro + posicao
             temp_posicao -= self._max_posicoes
-            # print(f'recomecou tabuleiro nova posicao={temp_posicao}')
             self._saldo = 100
             self._posicao_tabuleiro = temp_posicao
         else:
             self._posicao_tabuleiro += posicao
 
-    def avaliar_compra(self, propriedade):
-        # print(self.tipo_jogador)
+    def avaliar_compra(self, propriedade: json) -> bool:
         match self.tipo_jogador:
             case TipoJogador.EXIGENTE:
                 if propriedade['custo_aluguel'] > 50:
@@ -51,7 +50,7 @@ class Jogador:
                 elif numero == 2:
                     return False
             case TipoJogador.CAUTELOSO:
-                if (self.saldo - propriedade['custo_venda']) >= 80 :
+                if (self.saldo - propriedade['custo_venda']) >= 80:
                     return True
                 return False
             case TipoJogador.IMPULSIVO:

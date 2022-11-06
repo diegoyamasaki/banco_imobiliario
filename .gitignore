@@ -1,3 +1,6 @@
 venv/
 .idea
 __pycache__
+.idea/banco_imobiliario.iml
+__pycache__/jogador.cpython-311.pyc
+*.pyc
